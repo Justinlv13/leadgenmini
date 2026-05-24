@@ -47,7 +47,7 @@ Best.
 
 Great! Here is your payment link:
 
-[PayPal.me link] or Bitcoin: [BTC address]
+PayPal (justin@quickbookedai.com) or Bitcoin: 1NGn3M74knkVLzPKDePT3panKWtZaJwfea
 
 Amount: $39 (Pro package, 100 leads)
 
