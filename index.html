@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadGenMini — Targeted Lead Lists in Minutes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0e27; color: #fff; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { padding: 40px 0; text-align: center; }
+        h1 { font-size: 3.2rem; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
+        .tagline { font-size: 1.3rem; color: #a0aec0; margin-bottom: 40px; }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 18px 48px; border-radius: 50px; text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(102,126,234,0.3); }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(102,126,234,0.4); }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 0; }
+        .feature { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; text-align: center; }
+        .feature-icon { font-size: 3rem; margin-bottom: 20px; }
+        .feature h3 { font-size: 1.3rem; margin-bottom: 12px; color: #e2e8f0; }
+        .feature p { color: #a0aec0; line-height: 1.6; }
+        .pricing { padding: 60px 0; text-align: center; }
+        .pricing h2 { font-size: 2.5rem; margin-bottom: 40px; }
+        .plans { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .plan { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px 30px; min-width: 280px; position: relative; }
+        .plan.popular { border-color: #667eea; box-shadow: 0 0 30px rgba(102,126,234,0.2); }
+        .plan.popular::before { content: "POPULAR"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #667eea, #764ba2); padding: 5px 20px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
+        .plan h4 { font-size: 1.1rem; color: #a0aec0; margin-bottom: 10px; }
+        .price { font-size: 3rem; font-weight: 800; margin: 20px 0; }
+        .price span { font-size: 1rem; color: #a0aec0; font-weight: 400; }
+        .plan ul { list-style: none; text-align: left; margin: 30px 0; }
+        .plan ul li { padding: 8px 0; color: #e2e8f0; }
+        .plan ul li::before { content: "✅ "; }
+        footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem; }
+        .demo { padding: 40px 0; text-align: center; }
+        .demo-output { background: #1a1f3a; border-radius: 12px; padding: 30px; margin-top: 20px; font-family: monospace; text-align: left; max-width: 600px; margin: 20px auto; overflow: auto; max-height: 300px; }
+        .demo-output pre { color: #4ade80; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>LeadGenMini</h1>
+            <p class="tagline">Get targeted lead lists in minutes. No signup, no subscriptions — pay per list.</p>
+            <a href="mailto:hello@leadgenmini.com?subject=Order: Lead List Request" class="cta-button">Order Your List — $39</a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning Fast</h3>
+                <p>Receive your targeted lead list within 24 hours of ordering. No waiting, no back-and-forth.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3>Hyper-Targeted</h3>
+                <p>Specify niche, city, and filters. We find exactly who you're looking for — not generic lists.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💾</div>
+                <h3>Ready to Use</h3>
+                <p>CSV and VCF formats. Import directly into your CRM, dialer, or email tool instantly.</p>
+            </div>
+        </div>
+        
+        <div class="pricing">
+            <h2>Simple Pricing</h2>
+            <div class="plans">
+                <div class="plan">
+                    <h4>Starter</h4>
+                    <div class="price">$19</div>
+                    <ul>
+                        <li>Up to 50 leads</li>
+                        <li>One niche + city</li>
+                        <li>Basic info (name, phone)</li>
+                        <li>CSV format</li>
+                    </ul>
+                    <a href="mailto:hello@leadgenmini.com?subject=Order: Starter Pack" class="cta-button">Get Started</a>
+                </div>
+                <div class="plan popular">
+                    <h4>Pro</h4>
+                    <div class="price">$39<span>/list</span></div>
+                    <ul>
+                        <li>Up to 200 leads</li>
+                        <li>Multiple niches/cities</li>
+                        <li>Full contact info</li>
+                        <li>CSV + VCF formats</li>
+                        <li>48-hour delivery</li>
+                    </ul>
+                    <a href="mailto:hello@leadgenmini.com?subject=Order: Pro Pack" class="cta-button">Most Popular</a>
+                </div>
+                <div class="plan">
+                    <h4>Agency</h4>
+                    <div class="price">$99<span>/mo</span></div>
+                    <ul>
+                        <li>Unlimited lists</li>
+                        <li>Priority delivery</li>
+                        <li>API access</li>
+                        <li>White-label reports</li>
+                        <li>24/7 support</li>
+                    </ul>
+                    <a href="mailto:hello@leadgenmini.com?subject=Order: Agency Plan" class="cta-button">Scale Up</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo">
+            <h2>How It Works</h2>
+            <p style="color:#a0aec0;margin-bottom:20px;">Send an email with your request. Get leads in your inbox within 24h.</p>
+            <div class="demo-output">
+                <pre>Subject: Order: Lead List Request
+
+Hi!
+
+Niche: Dentists in Miami
+City: Miami, FL
+Volume: 150 leads
+Format: CSV + VCF
+
+Payment: PayPal/Venmo/Wire
+
+Thanks!</pre>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>LeadGenMini — Built with 💜 by a solo hustler | Secure, private, no spam</p>
+        <p>Questions? hello@leadgenmini.com</p>
+    </footer>
+</body>
+</html>
