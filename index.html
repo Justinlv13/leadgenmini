@@ -21,8 +21,8 @@
         .pricing { padding: 60px 0; text-align: center; }
         .pricing h2 { font-size: 2.5rem; margin-bottom: 40px; }
         .plans { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .plan { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px 30px; min-width: 280px; position: relative; }
-        .plan.popular { border-color: #667eea; box-shadow: 0 0 30px rgba(102,126,234,0.2); }
+        .plan { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px 30px; min-width: 280px; }
+        .plan.popular { border-color: #667eea; box-shadow: 0 0 30px rgba(102,126,234,0.2); position: relative; }
         .plan.popular::before { content: "POPULAR"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #667eea, #764ba2); padding: 5px 20px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
         .plan h4 { font-size: 1.1rem; color: #a0aec0; margin-bottom: 10px; }
         .price { font-size: 3rem; font-weight: 800; margin: 20px 0; }
@@ -31,21 +31,22 @@
         .plan ul li { padding: 8px 0; color: #e2e8f0; }
         .plan ul li::before { content: "✅ "; }
         footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem; }
-        .demo { padding: 40px 0; text-align: center; }
-        .demo-output { background: #1a1f3a; border-radius: 12px; padding: 30px; margin-top: 20px; font-family: monospace; text-align: left; max-width: 600px; margin: 20px auto; overflow: auto; max-height: 300px; }
-        .demo-output pre { color: #4ade80; font-size: 0.9rem; }
+        .demo { background-color: #0a0e27; }
+        .demo h2 { color: #ffffff; }
+        .demo p { color: #a0aec0; margin-bottom: 20px; }
+        .demo, .how-it-works, .features, .pricing { padding: 60px 0; text-align: center; }
+        .how-it-works ul { list-style: none; max-width: 500px; margin: 0 auto; padding: 0; }
+        .how-it-works li { color: #e2e8f0; padding: 12px 0; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
+    <div class="container">
+        <header>
             <h1>LeadGenMini</h1>
             <p class="tagline">Get targeted lead lists in minutes. No signup, no subscriptions — pay per list.</p>
-            <a href="mailto:hello@leadgenmini.com?subject=Order: Lead List Request" class="cta-button">Order Your List — $39</a>
-        </div>
-    </header>
+            <a href="mailto:?Subject=LeadGenMini%20Order%20Request&body=Hi!%20I'm%20interested%20in%20a%20lead%20list.%0A%0AThe%20niche%20I%20need%3A%20%0ACity%2FLocation%3A%20%0AList%20Size%3A%20Pro%20%2439%20%7C%20Starter%20%2419%20%7C%20Agency%20%2499%2Fmo%0A%0APayment%20Method%3A%20%0A%0AThanks!" class="cta-button">Order Your List — $39</a>
+        </header>
     
-    <div class="container">
         <div class="features">
             <div class="feature">
                 <div class="feature-icon">⚡</div>
@@ -63,7 +64,16 @@
                 <p>CSV and VCF formats. Import directly into your CRM, dialer, or email tool instantly.</p>
             </div>
         </div>
-        
+    
+        <div class="how-it-works">
+            <h2>How It Works</h2>
+            <ul style="list-style: none; max-width: 500px; margin: 0 auto; padding: 0;">
+                <li style="color: #e2e8f0; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">📣 <strong>You send a request</strong> (niche, city, package)</li>
+                <li style="color: #e2e8f0; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">🔍 <strong>I scrape</strong> within 24 hours</li>
+                <li style="color: #e2e8f0; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">✅ <strong>You receive</strong> the list, CSV + VCF</li>
+                <li style="color: #e2e8f0; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">💵 <strong>You pay</strong> only if you're happy</li>
+            </ul>
+        </div>
         <div class="pricing">
             <h2>Simple Pricing</h2>
             <div class="plans">
@@ -76,7 +86,7 @@
                         <li>Basic info (name, phone)</li>
                         <li>CSV format</li>
                     </ul>
-                    <a href="mailto:hello@leadgenmini.com?subject=Order: Starter Pack" class="cta-button">Get Started</a>
+                    <a href="mailto:?Subject=LeadGenMini%20Starter%20Order&body=Hi!%20I%20want%20the%20Starter%20Pack%20(%2419).%0A%0AThe%20niche%3A%20%0ACity%2FLocation%3A%20%0A%0AThanks!" class="cta-button">Get Started</a>
                 </div>
                 <div class="plan popular">
                     <h4>Pro</h4>
@@ -88,7 +98,7 @@
                         <li>CSV + VCF formats</li>
                         <li>48-hour delivery</li>
                     </ul>
-                    <a href="mailto:hello@leadgenmini.com?subject=Order: Pro Pack" class="cta-button">Most Popular</a>
+                    <a href="mailto:?Subject=LeadGenMini%20Pro%20Order&body=Hi!%20I%20want%20the%20Pro%20Pack%20(%2439).%0A%0AThe%20niche%3A%20%0ACity%2FLocation%3A%20%0A%0AThanks!" class="cta-button">Most Popular</a>
                 </div>
                 <div class="plan">
                     <h4>Agency</h4>
@@ -100,34 +110,14 @@
                         <li>White-label reports</li>
                         <li>24/7 support</li>
                     </ul>
-                    <a href="mailto:hello@leadgenmini.com?subject=Order: Agency Plan" class="cta-button">Scale Up</a>
+                    <a href="mailto:?Subject=LeadGenMini%20Agency%20Plan&body=Hi!%20I'm%20interested%20in%20the%20Agency%20Plan%20(%2499%2Fmo).%0A%0AThe%20niche%20I%20need%3A%20%0ACity%2FLocation%3A%20%0AMy%20use%20case%3A%20%0A%0AThanks!" class="cta-button">Scale Up</a>
                 </div>
             </div>
         </div>
-        
-        <div class="demo">
-            <h2>How It Works</h2>
-            <p style="color:#a0aec0;margin-bottom:20px;">Send an email with your request. Get leads in your inbox within 24h.</p>
-            <div class="demo-output">
-                <pre>Subject: Order: Lead List Request
-
-Hi!
-
-Niche: Dentists in Miami
-City: Miami, FL
-Volume: 150 leads
-Format: CSV + VCF
-
-Payment: PayPal/Venmo/Wire
-
-Thanks!</pre>
-            </div>
-        </div>
     </div>
-    
     <footer>
         <p>LeadGenMini — Built with 💜 by a solo hustler | Secure, private, no spam</p>
-        <p>Questions? hello@leadgenmini.com</p>
+        <p>Built in South Africa 🇿🇦 | Serving the world 🌍</p>
     </footer>
 </body>
 </html>
