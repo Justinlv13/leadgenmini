@@ -10,7 +10,7 @@
 ## REDDIT POST — r/entrepreneur
 # Reddit Outreach Templates — LeadGenMini
 
-Replace `LEADGENMINI_URL` with the actual netlify URL before posting.
+Replace `https://bootstrapleadgen.netlify.app/` with the actual netlify URL before posting.
 
 ## Post 1: The Value-First Angle (r/entrepreneur, r/EntrepreneurRideAlong)
 
@@ -28,7 +28,7 @@ I cleaned it up into a dead-simple service. You tell me your niche and city, I d
 
 If you own a service business and want fresh local leads, DM me. First 5 people get a FREE 30-lead sample.
 
-Edit: 43 DMs in 30 mins — working through them! If you want to skip the DM, here's the site: LEADGENMINI_URL
+Edit: 43 DMs in 30 mins — working through them! If you want to skip the DM, here's the site: https://bootstrapleadgen.netlify.app/
 
 ---
 
@@ -51,7 +51,7 @@ I decided to package this because I keep getting asked by other local biz owners
 
 If you're in a service business and want to try it, DM me for a free 25-lead sample. No commitment, just test the quality.
 
-Site: LEADGENMINI_URL
+Site: https://bootstrapleadgen.netlify.app/
 
 ---
 
@@ -82,7 +82,7 @@ I built this for my own side projects, then friends started paying for it. Now i
 
 If you want to see the data quality for yourself, DM me and I'll send a free 30-lead sample for any niche you want.
 
-Site: LEADGENMINI_URL
+Site: https://bootstrapleadgen.netlify.app/
 
 ---
 
@@ -104,14 +104,14 @@ Current niches I've delivered: plumbers, dentists, electricians, mechanics, beau
 
 If you want to test the data, DM me for a free 30-lead sample. I'll send it within the hour.
 
-Site: LEADGENMINI_URL
+Site: https://bootstrapleadgen.netlify.app/
 
 ---
 
 ## INDIEHACKERS POST
 # IndieHackers — Show IH Post
 
-Replace `LEADGENMINI_URL` with the actual netlify URL before posting.
+Replace `https://bootstrapleadgen.netlify.app/` with the actual netlify URL before posting.
 
 ---
 
@@ -181,7 +181,7 @@ If you're in a service business and need fresh local leads, comment with your ni
 ## TWITTER/X THREAD
 # Twitter/X Thread — LeadGenMini Launch
 
-Replace `LEADGENMINI_URL` with the actual netlify URL before posting.
+Replace `https://bootstrapleadgen.netlify.app/` with the actual netlify URL before posting.
 
 ---
 
@@ -258,7 +258,7 @@ Replace `LEADGENMINI_URL` with the actual netlify URL before posting.
 >
 > First 5 people get a FREE 30-lead sample. No strings attached.
 >
-> Link: LEADGENMINI_URL
+> Link: https://bootstrapleadgen.netlify.app/
 >
 > #bootstrap #SaaS #leadgeneration
 

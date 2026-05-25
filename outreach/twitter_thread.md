@@ -1,6 +1,6 @@
 # Twitter/X Thread — LeadGenMini Launch
 
-Replace `LEADGENMINI_URL` with the actual netlify URL before posting.
+Replace `https://bootstrapleadgen.netlify.app/` with the actual netlify URL before posting.
 
 ---
 
@@ -77,7 +77,7 @@ Replace `LEADGENMINI_URL` with the actual netlify URL before posting.
 >
 > First 5 people get a FREE 30-lead sample. No strings attached.
 >
-> Link: LEADGENMINI_URL
+> Link: https://bootstrapleadgen.netlify.app/
 >
 > #bootstrap #SaaS #leadgeneration
 

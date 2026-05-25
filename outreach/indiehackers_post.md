@@ -1,6 +1,6 @@
 # IndieHackers — Show IH Post
 
-Replace `LEADGENMINI_URL` with the actual netlify URL before posting.
+Replace `https://bootstrapleadgen.netlify.app/` with the actual netlify URL before posting.
 
 ---
 

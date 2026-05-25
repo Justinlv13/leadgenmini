@@ -31,7 +31,7 @@
 > 
 > If you own a local service business and need fresh leads, DM me your niche + city. I'll give you a free 30-lead sample.
 > 
-> Edit: Wow, inbox is full! Give me a hour to catch up. Also, here's the site if you want to skip the DM: [LEADGENMINI_URL]
+> Edit: Wow, inbox is full! Give me a hour to catch up. Also, here's the site if you want to skip the DM: [https://bootstrapleadgen.netlify.app/]
 
 #### IndieHackers: Show IH Post
 > **Launched LeadGenMini — $39 lead lists for local businesses:**
