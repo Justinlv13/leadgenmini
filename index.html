@@ -11,114 +11,224 @@
         header { padding: 40px 0; text-align: center; }
         h1 { font-size: 3.2rem; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
         .tagline { font-size: 1.3rem; color: #a0aec0; margin-bottom: 40px; }
-        .cta-button { display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 18px 48px; border-radius: 50px; text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(102,126,234,0.3); }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 18px 48px; border-radius: 50px; text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(102,126,234,0.3); border: none; cursor: pointer; }
         .cta-button:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(102,126,234,0.4); }
+        .cta-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
         .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 0; }
         .feature { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; text-align: center; }
         .feature-icon { font-size: 3rem; margin-bottom: 20px; }
         .feature h3 { font-size: 1.3rem; margin-bottom: 12px; color: #e2e8f0; }
         .feature p { color: #a0aec0; line-height: 1.6; }
-        .pricing { padding: 60px 0; text-align: center; }
-        .pricing h2 { font-size: 2.5rem; margin-bottom: 40px; }
-        .plans { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .plan { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px 30px; min-width: 280px; }
-        .plan.popular { border-color: #667eea; box-shadow: 0 0 30px rgba(102,126,234,0.2); position: relative; }
-        .plan.popular::before { content: "POPULAR"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #667eea, #764ba2); padding: 5px 20px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; }
-        .plan h4 { font-size: 1.1rem; color: #a0aec0; margin-bottom: 10px; }
-        .price { font-size: 3rem; font-weight: 800; margin: 20px 0; }
-        .price span { font-size: 1rem; color: #a0aec0; font-weight: 400; }
-        .plan ul { list-style: none; text-align: left; margin: 30px 0; }
-        .plan ul li { padding: 8px 0; color: #e2e8f0; }
-        .plan ul li::before { content: "✅ "; }
-        footer { text-align: center; padding: 40px; color: #64748b; font-size: 0.9rem; }
-        .demo { background-color: #0a0e27; }
-        .demo h2 { color: #ffffff; }
-        .demo p { color: #a0aec0; margin-bottom: 20px; }
-        .demo, .how-it-works, .features, .pricing { padding: 60px 0; text-align: center; }
-        .how-it-works ul { list-style: none; max-width: 500px; margin: 0 auto; padding: 0; }
-        .how-it-works li { color: #e2e8f0; padding: 12px 0; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .order-section { padding: 60px 0; }
+        .order-section h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; }
+        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+        .plan { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; text-align: center; }
+        .plan.popular { border-color: #667eea; transform: scale(1.05); }
+        .plan h4 { font-size: 1.2rem; color: #a0aec0; margin-bottom: 10px; }
+        .price { font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; }
+        .price span { font-size: 1rem; color: #a0aec0; }
+        .plan ul { list-style: none; margin-bottom: 25px; text-align: left; }
+        .plan li { padding: 8px 0; color: #a0aec0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .order-form { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; max-width: 600px; margin: 40px auto 0; }
+        .order-form h3 { text-align: center; margin-bottom: 30px; font-size: 1.5rem; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #a0aec0; font-size: 0.9rem; }
+        .form-group input, .form-group select { width: 100%; padding: 14px 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #fff; font-size: 1rem; outline: none; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus { border-color: #667eea; }
+        .form-group select option { background: #1a1f3a; color: #fff; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .submit-button { width: 100%; padding: 16px; border-radius: 12px; border: none; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; margin-top: 10px; }
+        .submit-button:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102,126,234,0.4); }
+        .submit-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .status-msg { text-align: center; margin-top: 15px; font-size: 0.95rem; min-height: 24px; }
+        .status-msg.success { color: #48bb78; }
+        .status-msg.error { color: #fc8181; }
+        .status-msg.loading { color: #a0aec0; }
+        footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); color: #718096; margin-top: 60px; }
+        footer p { margin: 8px 0; }
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .plan.popular { transform: none; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>LeadGenMini</h1>
-            <p class="tagline">Get targeted lead lists in minutes. No signup, no subscriptions — pay per list.</p>
-            <a href="mailto:justin@getquickbookedai.com?Subject=LeadGenMini%20Order%20Request&body=Hi!%20I'm%20interested%20in%20a%20lead%20list.%0A%0AThe%20niche%20I%20need%3A%20%0ACity%2FLocation%3A%20%0AList%20Size%3A%20Pro%20%2439%20%7C%20Starter%20%2419%20%7C%20Agency%20%2499%2Fmo%0A%0APayment%20Method%3A%20PayPal%20(justin%40quickbookedai.com)%20or%20Bitcoin%0AThanks!" class="cta-button">Order Your List — $39</a>
+            <p class="tagline">Scrape targeted local business leads from Google Maps. Get a CSV within 24 hours.</p>
+            <a href="#order" class="cta-button">Get Leads Now →</a>
         </header>
-    
+
         <div class="features">
             <div class="feature">
+                <div class="feature-icon">🗺️</div>
+                <h3>Google Maps Data</h3>
+                <p>Fresh, verified leads scraped directly from Google Maps. Not recycled databases or stale lists.</p>
+            </div>
+            <div class="feature">
                 <div class="feature-icon">⚡</div>
-                <h3>Lightning Fast</h3>
-                <p>Receive your targeted lead list within 24 hours of ordering. No waiting, no back-and-forth.</p>
+                <h3>24-Hour Delivery</h3>
+                <p>Place your order, get your CSV. No waiting for "processing" or "verification" delays.</p>
             </div>
             <div class="feature">
                 <div class="feature-icon">🎯</div>
                 <h3>Hyper-Targeted</h3>
-                <p>Specify niche, city, and filters. We find exactly who you're looking for — not generic lists.</p>
+                <p>Specify your exact niche and city. Get leads that actually fit your target market.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">💾</div>
-                <h3>Ready to Use</h3>
-                <p>CSV and VCF formats. Import directly into your CRM, dialer, or email tool instantly.</p>
+                <div class="feature-icon">📊</div>
+                <h3>Full Contact Info</h3>
+                <p>Business name, phone, address, email (where available), website, and Google rating.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>No Subscriptions</h3>
+                <p>One payment, one list. No monthly fees, no retainers, no contracts.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <h3>Any City, Any Niche</h3>
+                <p>Mechanics, plumbers, dentists, HVAC, law firms, restaurants — any local business type.</p>
             </div>
         </div>
-    
-        <div class="how-it-works">
-            <h2>How It Works</h2>
-            <ul style="list-style: none; max-width: 500px; margin: 0 auto; padding: 0;">
-                <li style="color: #e2e8f0; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">📣 <strong>You send a request</strong> (niche, city, package)</li>
-                <li style="color: #e2e8f0; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">🔍 <strong>I scrape</strong> within 24 hours</li>
-                <li style="color: #e2e8f0; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">✅ <strong>You receive</strong> the list, CSV + VCF</li>
-                <li style="color: #e2e8f0; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">💵 <strong>You pay</strong> only if you're happy</li>
-            </ul>
-        </div>
-        <div class="pricing">
-            <h2>Simple Pricing</h2>
-            <div class="plans">
+
+        <div class="order-section" id="order">
+            <h2>Order Your Lead List</h2>
+            <div class="pricing">
                 <div class="plan">
                     <h4>Starter</h4>
-                    <div class="price">$19</div>
+                    <div class="price">$19<span>/list</span></div>
                     <ul>
-                        <li>Up to 50 leads</li>
-                        <li>One niche + city</li>
-                        <li>Basic info (name, phone)</li>
+                        <li>50 verified leads</li>
+                        <li>One city, one niche</li>
+                        <li>Full contact info</li>
                         <li>CSV format</li>
+                        <li>48-hour delivery</li>
                     </ul>
-                    <a href="mailto:?Subject=LeadGenMini%20Starter%20Order&body=Hi!%20I%20want%20the%20Starter%20Pack%20(%2419).%0A%0AThe%20niche%3A%20%0ACity%2FLocation%3A%20%0A%0AThanks!" class="cta-button">Get Started</a>
                 </div>
                 <div class="plan popular">
                     <h4>Pro</h4>
                     <div class="price">$39<span>/list</span></div>
                     <ul>
-                        <li>Up to 200 leads</li>
-                        <li>Multiple niches/cities</li>
+                        <li>100 verified leads</li>
+                        <li>One city, one niche</li>
                         <li>Full contact info</li>
                         <li>CSV + VCF formats</li>
-                        <li>48-hour delivery</li>
+                        <li>24-hour delivery</li>
                     </ul>
-                    <a href="mailto:?Subject=LeadGenMini%20Pro%20Order&body=Hi!%20I%20want%20the%20Pro%20Pack%20(%2439).%0A%0AThe%20niche%3A%20%0ACity%2FLocation%3A%20%0A%0AThanks!" class="cta-button">Most Popular</a>
                 </div>
                 <div class="plan">
                     <h4>Agency</h4>
                     <div class="price">$99<span>/mo</span></div>
                     <ul>
                         <li>Unlimited lists</li>
-                        <li>Priority delivery</li>
+                        <li>Priority delivery (&lt;2h)</li>
                         <li>API access</li>
                         <li>White-label reports</li>
-                        <li>24/7 support</li>
+                        <li>Dedicated support</li>
                     </ul>
-                    <a href="mailto:?Subject=LeadGenMini%20Agency%20Plan&body=Hi!%20I'm%20interested%20in%20the%20Agency%20Plan%20(%2499%2Fmo).%0A%0AThe%20niche%20I%20need%3A%20%0ACity%2FLocation%3A%20%0AMy%20use%20case%3A%20%0A%0AThanks!" class="cta-button">Scale Up</a>
                 </div>
             </div>
+
+            <form class="order-form" id="orderForm">
+                <h3>🗺️ Place Your Order</h3>
+                <div class="form-group">
+                    <label for="niche">Niche / Business Type</label>
+                    <select id="niche" required>
+                        <option value="">— Select niche —</option>
+                        <option value="mechanic">Mechanic / Auto Repair</option>
+                        <option value="plumber">Plumber</option>
+                        <option value="dentist">Dentist / Dental Practice</option>
+                        <option value="hvac">HVAC / Air Conditioning</option>
+                        <option value="electrician">Electrician</option>
+                        <option value="roofer">Roofer</option>
+                        <option value="lawyer">Law Firm / Attorney</option>
+                        <option value="accountant">Accountant / CPA</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="salon">Beauty Salon / Spa</option>
+                        <option value="gym">Gym / Fitness Studio</option>
+                        <option value="cleaning">Cleaning Service</option>
+                        <option value="landscaping">Landscaping / Gardening</option>
+                        <option value="pestcontrol">Pest Control</option>
+                        <option value="other">Other (specify in notes)</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="e.g., Johannesburg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pkg">Package</label>
+                        <select id="pkg">
+                            <option value="starter">Starter — $19 (50 leads)</option>
+                            <option value="pro" selected>Pro — $39 (100 leads)</option>
+                            <option value="agency">Agency — $99/mo (unlimited)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email (for delivery)</label>
+                    <input type="email" id="email" placeholder="you@email.com" required>
+                </div>
+                <button type="submit" class="submit-button" id="submitBtn">Continue to Payment →</button>
+                <div class="status-msg" id="statusMsg"></div>
+            </form>
         </div>
+
+        <footer>
+            <p>LeadGenMini — A bootstrap hustle. Pay for the list, get it within 24h. No spam.</p>
+            <p>💳 PayPal: justin@quickbookedai.com | ₿ BTC: 1NGn3M74knkVLzPKDePT3panKWtZaJwfea</p>
+            <p>🇿🇦 Built in SA, serving the world</p>
+        </footer>
     </div>
-    <footer>
-        <p>LeadGenMini — A bootstrap hustle. Pay for the list, get it within 24h. No spam.</p>
-        <p>💳 PayPal: justin@quickbookedai.com | ₿ BTC: 1NGn3M74knkVLzPKDePT3panKWtZaJwfea</p>
-        <p>⚡ DM me where you found this link to order // 🇿🇦 Built in SA, serving the world</p>
-    </footer>
+
+    <script>
+        const BACKEND = 'https://quickbookedai.onrender.com/api/leadgen';
+
+        document.getElementById('orderForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const status = document.getElementById('statusMsg');
+
+            btn.disabled = true;
+            status.className = 'status-msg loading';
+            status.textContent = 'Creating your order...';
+
+            const data = {
+                niche: document.getElementById('niche').value,
+                city: document.getElementById('city').value,
+                email: document.getElementById('email').value,
+                pkg: document.getElementById('pkg').value,
+            };
+
+            try {
+                const res = await fetch(BACKEND + '/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                const json = await res.json();
+
+                if (json.success && json.paymentUrl) {
+                    status.className = 'status-msg success';
+                    status.textContent = 'Order created! Redirecting to PayPal...';
+                    // Redirect to PayPal for payment
+                    setTimeout(() => {
+                        window.location.href = json.paymentUrl;
+                    }, 1000);
+                } else {
+                    throw new Error(json.error || 'Order failed');
+                }
+            } catch (err) {
+                status.className = 'status-msg error';
+                status.textContent = 'Error: ' + (err.message || 'Could not create order. Try again or email justin@getquickbookedai.com');
+                btn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
