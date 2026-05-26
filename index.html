@@ -138,27 +138,39 @@
                     <label for="niche">Niche / Business Type</label>
                     <select id="niche" required>
                         <option value="">— Select niche —</option>
-                        <option value="mechanic">Mechanic / Auto Repair</option>
-                        <option value="plumber">Plumber</option>
-                        <option value="dentist">Dentist / Dental Practice</option>
-                        <option value="hvac">HVAC / Air Conditioning</option>
-                        <option value="electrician">Electrician</option>
-                        <option value="roofer">Roofer</option>
-                        <option value="lawyer">Law Firm / Attorney</option>
-                        <option value="accountant">Accountant / CPA</option>
-                        <option value="restaurant">Restaurant</option>
-                        <option value="salon">Beauty Salon / Spa</option>
-                        <option value="gym">Gym / Fitness Studio</option>
-                        <option value="cleaning">Cleaning Service</option>
-                        <option value="landscaping">Landscaping / Gardening</option>
-                        <option value="pestcontrol">Pest Control</option>
-                        <option value="other">Other (specify in notes)</option>
+                        <optgroup label="Marketing &amp; Sales">
+                            <option value="marketing_agency">Marketing / Digital Agency</option>
+                            <option value="seo_agency">SEO / PPC Agency</option>
+                            <option value="leadgen_agency">Lead Generation Company</option>
+                        </optgroup>
+                        <optgroup label="B2B &amp; Recruitment">
+                            <option value="recruitment">Recruitment / Staffing Agency</option>
+                            <option value="insurance">Commercial Insurance Agency</option>
+                            <option value="b2b_sales">B2B Sales / SaaS</option>
+                        </optgroup>
+                        <optgroup label="Service Businesses">
+                            <option value="hvac">HVAC / Air Conditioning</option>
+                            <option value="plumber">Plumbing Company</option>
+                            <option value="roofer">Roofing Contractor</option>
+                            <option value="electrician">Electrical Contractor</option>
+                            <option value="tree_service">Tree Service</option>
+                            <option value="pestcontrol">Pest Control</option>
+                            <option value="garage_door">Garage Door Repair</option>
+                            <option value="junk_removal">Junk Removal</option>
+                            <option value="locksmith">Locksmith</option>
+                            <option value="moving">Moving Company</option>
+                        </optgroup>
+                        <optgroup label="Professional">
+                            <option value="lawyer">Law Firm</option>
+                            <option value="dentist">Dental Practice</option>
+                            <option value="accountant">Accountant / CPA</option>
+                        </optgroup>
                     </select>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="city">City</label>
-                        <input type="text" id="city" placeholder="e.g., Johannesburg" required>
+                        <input type="text" id="city" placeholder="e.g., Johannesburg, Cape Town, Dallas, London" required>
                     </div>
                     <div class="form-group">
                         <label for="pkg">Package</label>
@@ -174,6 +186,9 @@
                     <input type="email" id="email" placeholder="you@email.com" required>
                 </div>
                 <button type="submit" class="submit-button" id="submitBtn">Continue to Payment →</button>
+                <p style="text-align:center; margin-top:12px; font-size:0.85rem; color:#718096;">
+                    Pay via PayPal. CSV delivered within 24 hours of payment.
+                </p>
                 <div class="status-msg" id="statusMsg"></div>
             </form>
         </div>
