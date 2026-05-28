@@ -99,7 +99,7 @@
             <div class="pricing">
                 <div class="plan">
                     <h4>Starter</h4>
-                    <div class="price"><span class="plan-price-data" data-tier="starter">$8</span><span>/list</span></div>
+                    <div class="price"><span class="plan-price-data" data-tier="starter">R141</span><span>/list</span></div>
                     <ul>
                         <li>50 verified leads</li>
                         <li>One city, one niche</li>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="plan popular">
                     <h4>Pro</h4>
-                    <div class="price"><span class="plan-price-data" data-tier="pro">$16</span><span>/list</span></div>
+                    <div class="price"><span class="plan-price-data" data-tier="pro">R289</span><span>/list</span></div>
                     <ul>
                         <li>100 verified leads</li>
                         <li>One city, one niche</li>
@@ -121,7 +121,7 @@
                 </div>
                 <div class="plan">
                     <h4>Agency</h4>
-                    <div class="price"><span class="plan-price-data" data-tier="agency">$40</span><span>/mo</span></div>
+                    <div class="price"><span class="plan-price-data" data-tier="agency">R733</span><span>/mo</span></div>
                     <ul>
                         <li>Unlimited lists</li>
                         <li>Priority delivery (&lt;2h)</li>
@@ -190,7 +190,7 @@
                 </div>
                 <button type="submit" class="submit-button" id="submitBtn">Continue to Payment →</button>
                 <p style="text-align:center; margin-top:12px; font-size:0.85rem; color:#718096;">
-                    Pay via PayPal. CSV delivered within 24 hours of payment.
+                    Pay via PayPal. CSV delivered within 24 hours. Pricing in your local currency.
                 </p>
                 <div class="status-msg" id="statusMsg"></div>
             </form>
@@ -206,50 +206,105 @@
     <script>
         const BACKEND = 'https://quickbookedai-backend.onrender.com/api/leadgenmini';
 
-        // Country-specific pricing (in USD)
+        // Country-specific pricing in LOCAL CURRENCIALES
+        // ZA: Rands (ZAR) | UK: Pounds (GBP) | AU: AUD | US: USD
+        // Purchasing power: ZA=40%, UK=85%, AU=70%, US=100%
         const PRICING = {
-            US: { starter: 19, pro: 39, agency: 99, symbol: "$", label: "US" },
-            UK: { starter: 16, pro: 33, agency: 84, symbol: "$", label: "UK" },
-            AU: { starter: 13, pro: 27, agency: 69, symbol: "$", label: "AU" },
-            ZA: { starter: 8,  pro: 16, agency: 40, symbol: "$", label: "ZA" },
-            OTHER: { starter: 19, pro: 39, agency: 99, symbol: "$", label: "Intl" },
+            ZA: { currency: 'ZAR', symbol: 'R',  starter: 141, pro: 289, agency: 733, label: 'South Africa' },
+            UK: { currency: 'GBP', symbol: '£',  starter: 13,   pro: 26,   agency: 66,   label: 'United Kingdom' },
+            AU: { currency: 'AUD', symbol: 'A$', starter: 21,   pro: 42,   agency: 107,  label: 'Australia' },
+            US: { currency: 'USD', symbol: '$',  starter: 19,   pro: 39,   agency: 99,   label: 'International' },
+            OTHER: { currency: 'USD', symbol: '$', starter: 19, pro: 39,   agency: 99,    label: 'International' },
         };
 
         function updatePricing() {
             const country = document.getElementById('country').value;
             const p = PRICING[country] || PRICING.US;
-            const pkg = document.getElementById('pkg');
-            pkg.innerHTML = '';
+            const pkgEl = document.getElementById('pkg');
+            pkgEl.innerHTML = '';
+
             const opts = [
                 { v: 'starter', l: 'Starter', n: 50 },
                 { v: 'pro', l: 'Pro', n: 100 },
                 { v: 'agency', l: 'Agency', n: '∞' },
             ];
-            opts.forEach((o, i) => {
+            opts.forEach((o) => {
                 const price = p[o.v];
-                const txt = o.v === 'agency' 
+                const txt = o.v === 'agency'
                     ? `${o.l} — ${p.symbol}${price}/mo (${o.n} leads)`
                     : `${o.l} — ${p.symbol}${price} (${o.n} leads)`;
                 const opt = document.createElement('option');
                 opt.value = o.v;
                 opt.textContent = txt;
                 if (o.v === 'pro') opt.selected = true;
-                pkg.appendChild(opt);
+                pkgEl.appendChild(opt);
             });
 
-            // Update the price displays in the pricing cards
+            // Update pricing card prices
             document.querySelectorAll('.plan-price-data').forEach(el => {
                 const tier = el.dataset.tier;
                 if (tier && p[tier]) {
                     el.textContent = p.symbol + p[tier] + (tier === 'agency' ? '/mo' : '');
                 }
             });
+
+            // Update currency indicators in description text
+            document.querySelectorAll('.currency-label').forEach(el => {
+                el.textContent = p.currency;
+            });
         }
 
         document.getElementById('country').addEventListener('change', updatePricing);
-        updatePricing(); // Init on load
+        updatePricing(); // Init
 
         document.getElementById('orderForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const status = document.getElementById('statusMsg');
+
+            btn.disabled = true;
+            status.className = 'status-msg loading';
+            status.textContent = 'Creating your order...';
+
+            const country = document.getElementById('country').value;
+            const pkg = document.getElementById('pkg').value;
+            const p = PRICING[country] || PRICING.US;
+
+            const data = {
+                niche: document.getElementById('niche').value,
+                city: document.getElementById('city').value,
+                email: document.getElementById('email').value,
+                pkg: pkg,
+                country: country,
+                amount: p[pkg],
+                currency: p.currency,
+            };
+
+            try {
+                const res = await fetch(BACKEND + '/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                const json = await res.json();
+
+                if (json.success && json.paymentUrl) {
+                    status.className = 'status-msg success';
+                    status.textContent = `Order created! Total: ${p.symbol}${p[pkg]} ${p.currency}. Redirecting to PayPal...`;
+                    setTimeout(() => {
+                        window.location.href = json.paymentUrl;
+                    }, 1500);
+                } else {
+                    throw new Error(json.error || 'Order failed');
+                }
+            } catch (err) {
+                status.className = 'status-msg error';
+                status.textContent = 'Error: ' + (err.message || 'Could not create order. Try again or email justin@getquickbookedai.com');
+                btn.disabled = false;
+            }
+        });
+    </script>
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
             const status = document.getElementById('statusMsg');
