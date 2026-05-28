@@ -99,7 +99,7 @@
             <div class="pricing">
                 <div class="plan">
                     <h4>Starter</h4>
-                    <div class="price">$19<span>/list</span></div>
+                    <div class="price"><span class="plan-price-data" data-tier="starter">$8</span><span>/list</span></div>
                     <ul>
                         <li>50 verified leads</li>
                         <li>One city, one niche</li>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="plan popular">
                     <h4>Pro</h4>
-                    <div class="price">$39<span>/list</span></div>
+                    <div class="price"><span class="plan-price-data" data-tier="pro">$16</span><span>/list</span></div>
                     <ul>
                         <li>100 verified leads</li>
                         <li>One city, one niche</li>
@@ -121,7 +121,7 @@
                 </div>
                 <div class="plan">
                     <h4>Agency</h4>
-                    <div class="price">$99<span>/mo</span></div>
+                    <div class="price"><span class="plan-price-data" data-tier="agency">$40</span><span>/mo</span></div>
                     <ul>
                         <li>Unlimited lists</li>
                         <li>Priority delivery (&lt;2h)</li>
@@ -134,38 +134,43 @@
 
             <form class="order-form" id="orderForm">
                 <h3>🗺️ Place Your Order</h3>
-                <div class="form-group">
-                    <label for="niche">Niche / Business Type</label>
-                    <select id="niche" required>
-                        <option value="">— Select niche —</option>
-                        <optgroup label="Marketing &amp; Sales">
-                            <option value="marketing_agency">Marketing / Digital Agency</option>
-                            <option value="seo_agency">SEO / PPC Agency</option>
-                            <option value="leadgen_agency">Lead Generation Company</option>
-                        </optgroup>
-                        <optgroup label="B2B &amp; Recruitment">
-                            <option value="recruitment">Recruitment / Staffing Agency</option>
-                            <option value="insurance">Commercial Insurance Agency</option>
-                            <option value="b2b_sales">B2B Sales / SaaS</option>
-                        </optgroup>
-                        <optgroup label="Service Businesses">
-                            <option value="hvac">HVAC / Air Conditioning</option>
-                            <option value="plumber">Plumbing Company</option>
-                            <option value="roofer">Roofing Contractor</option>
-                            <option value="electrician">Electrical Contractor</option>
-                            <option value="tree_service">Tree Service</option>
-                            <option value="pestcontrol">Pest Control</option>
-                            <option value="garage_door">Garage Door Repair</option>
-                            <option value="junk_removal">Junk Removal</option>
-                            <option value="locksmith">Locksmith</option>
-                            <option value="moving">Moving Company</option>
-                        </optgroup>
-                        <optgroup label="Professional">
-                            <option value="lawyer">Law Firm</option>
-                            <option value="dentist">Dental Practice</option>
-                            <option value="accountant">Accountant / CPA</option>
-                        </optgroup>
-                    </select>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country">Your Country</label>
+                        <select id="country" required>
+                            <option value="US">🇺🇸 United States</option>
+                            <option value="UK">🇬🇧 United Kingdom</option>
+                            <option value="AU">🇦🇺 Australia</option>
+                            <option value="ZA" selected>🇿🇦 South Africa</option>
+                            <option value="OTHER">🌍 Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="niche">Niche / Business Type</label>
+                        <select id="niche" required>
+                            <option value="">— Select niche —</option>
+                            <optgroup label="Marketing &amp; Sales">
+                                <option value="marketing_agency">Marketing / Digital Agency</option>
+                                <option value="seo_agency">SEO / PPC Agency</option>
+                                <option value="leadgen_agency">Lead Generation Company</option>
+                            </optgroup>
+                            <optgroup label="B2B &amp; Recruitment">
+                                <option value="recruitment">Recruitment / Staffing Agency</option>
+                                <option value="insurance">Commercial Insurance Agency</option>
+                                <option value="b2b_sales">B2B Sales / SaaS</option>
+                            </optgroup>
+                            <optgroup label="Service Businesses">
+                                <option value="hvac">HVAC / Air Conditioning</option>
+                                <option value="plumber">Plumbing Company</option>
+                                <option value="electrician">Electrical Contractor</option>
+                                <option value="dentist">Dental Practice</option>
+                            </optgroup>
+                            <optgroup label="Professional">
+                                <option value="lawyer">Law Firm</option>
+                                <option value="accountant">Accountant / CPA</option>
+                            </optgroup>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
@@ -175,9 +180,7 @@
                     <div class="form-group">
                         <label for="pkg">Package</label>
                         <select id="pkg">
-                            <option value="starter">Starter — $19 (50 leads)</option>
-                            <option value="pro" selected>Pro — $39 (100 leads)</option>
-                            <option value="agency">Agency — $99/mo (unlimited)</option>
+                            <!-- Prices populated by JS based on country -->
                         </select>
                     </div>
                 </div>
@@ -203,6 +206,49 @@
     <script>
         const BACKEND = 'https://quickbookedai-backend.onrender.com/api/leadgenmini';
 
+        // Country-specific pricing (in USD)
+        const PRICING = {
+            US: { starter: 19, pro: 39, agency: 99, symbol: "$", label: "US" },
+            UK: { starter: 16, pro: 33, agency: 84, symbol: "$", label: "UK" },
+            AU: { starter: 13, pro: 27, agency: 69, symbol: "$", label: "AU" },
+            ZA: { starter: 8,  pro: 16, agency: 40, symbol: "$", label: "ZA" },
+            OTHER: { starter: 19, pro: 39, agency: 99, symbol: "$", label: "Intl" },
+        };
+
+        function updatePricing() {
+            const country = document.getElementById('country').value;
+            const p = PRICING[country] || PRICING.US;
+            const pkg = document.getElementById('pkg');
+            pkg.innerHTML = '';
+            const opts = [
+                { v: 'starter', l: 'Starter', n: 50 },
+                { v: 'pro', l: 'Pro', n: 100 },
+                { v: 'agency', l: 'Agency', n: '∞' },
+            ];
+            opts.forEach((o, i) => {
+                const price = p[o.v];
+                const txt = o.v === 'agency' 
+                    ? `${o.l} — ${p.symbol}${price}/mo (${o.n} leads)`
+                    : `${o.l} — ${p.symbol}${price} (${o.n} leads)`;
+                const opt = document.createElement('option');
+                opt.value = o.v;
+                opt.textContent = txt;
+                if (o.v === 'pro') opt.selected = true;
+                pkg.appendChild(opt);
+            });
+
+            // Update the price displays in the pricing cards
+            document.querySelectorAll('.plan-price-data').forEach(el => {
+                const tier = el.dataset.tier;
+                if (tier && p[tier]) {
+                    el.textContent = p.symbol + p[tier] + (tier === 'agency' ? '/mo' : '');
+                }
+            });
+        }
+
+        document.getElementById('country').addEventListener('change', updatePricing);
+        updatePricing(); // Init on load
+
         document.getElementById('orderForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
@@ -212,11 +258,18 @@
             status.className = 'status-msg loading';
             status.textContent = 'Creating your order...';
 
+            const country = document.getElementById('country').value;
+            const pkg = document.getElementById('pkg').value;
+            const pricing = PRICING[country] || PRICING.US;
+
             const data = {
                 niche: document.getElementById('niche').value,
                 city: document.getElementById('city').value,
                 email: document.getElementById('email').value,
-                pkg: document.getElementById('pkg').value,
+                pkg: pkg,
+                country: country,
+                amount: pricing[pkg],
+                currency: 'USD',
             };
 
             try {
@@ -231,7 +284,6 @@
                 if (json.success && json.paymentUrl) {
                     status.className = 'status-msg success';
                     status.textContent = 'Order created! Redirecting to PayPal...';
-                    // Redirect to PayPal for payment
                     setTimeout(() => {
                         window.location.href = json.paymentUrl;
                     }, 1000);
