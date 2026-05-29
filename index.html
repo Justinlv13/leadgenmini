@@ -244,7 +244,7 @@
             document.querySelectorAll('.plan-price-data').forEach(el => {
                 const tier = el.dataset.tier;
                 if (tier && p[tier]) {
-                    el.textContent = p.symbol + p[tier] + (tier === 'agency' ? '/mo' : '');
+                    el.textContent = p.symbol + p[tier];
                 }
             });
 
