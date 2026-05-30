@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+venv/
+*.json
+!social_media_posts.json
+gen_*
+kdp_*
+*.csv
+*.md
+setup_tokens.py
